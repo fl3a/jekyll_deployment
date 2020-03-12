@@ -24,7 +24,7 @@ www=/var/www/virtual/${USER}/${site_prefix}${site}
 [ $pushed_branch != $build_branch ] && exit
 git clone ${git_repo} ${tmp}
 cd ${tmp}
-bundle install --path=~/.gem
+bundle install --path=~/.gem || bundle install --path=~/.gem --redownload
 bundle exec jekyll build --source ${tmp} --destination ${www}
 rm -rf ${tmp}
 exit

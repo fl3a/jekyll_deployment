@@ -11,13 +11,15 @@ pushed_branch=${ref#refs/heads/}
 
 ## Variables
 
-build_branch='master'
-site='example.com'
-site_prefix='int.'
+build_branch='master'  # e.g. 'master'
+site='netzaffe.de'     # e.g. 'example.com'
+site_prefix='int.'     # e.g. 'preview.' !with trailing '.' !
 
+# uberspace specific
 git_repo=${HOME}/repos/${site}.git 
-tmp=$(mktemp -d)
 www=/var/www/virtual/${USER}/${site_prefix}${site}
+
+tmp=$(mktemp -d)
 
 ## Do the magic
  

@@ -16,7 +16,7 @@ site='example.com'
 site_prefix='int.'
 
 git_repo=${HOME}/repos/${site}.git 
-tmp=${HOME}/repos/tmp/${site}
+tmp=$(mktemp -d)
 www=/var/www/virtual/${USER}/${site_prefix}${site}
 
 ## Do the magic

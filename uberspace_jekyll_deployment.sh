@@ -25,6 +25,6 @@ www=/var/www/virtual/${USER}/${site_prefix}${site}
 git clone ${git_repo} ${tmp}
 cd ${tmp}
 bundle install --path=~/.gem
-JEKYLL_ENV=production jekyll build --source ${tmp} --destination ${www}
+bundle exec jekyll build --source ${tmp} --destination ${www}
 rm -rf ${tmp}
 exit

@@ -6,16 +6,16 @@
 # See https://netzaffe.de/jekyll-deployment-auf-uberspace-via-bare-repo-und-post-receive-hook/ 
 # for requirements and more detailed description (german)
 
-read oldrev newrev ref
-pushed_branch=${ref#refs/heads/}
+[ $1 != "--cli" ] && read oldrev newrev ref ; pushed_branch=${ref#refs/heads/}
 
 ## Variables
 
-build_branch='master'  # e.g. 'master'
-site='netzaffe.de'     # e.g. 'example.com'
-site_prefix='int.'     # e.g. 'preview.' !with trailing '.' !
+build_branch='master'                 		# e.g. 'master'
+pushed_branch=${pushed_branch:-$build_branch} 	# default for calling with --cli
+site='netzaffe.de'                    		# e.g. 'example.com'
+site_prefix=''         				# e.g. 'preview.' # Mind the trailing '.' !
 
-# uberspace specific
+# Uberspace specific variables
 git_repo=${HOME}/repos/${site}.git 
 www=/var/www/virtual/${USER}/${site_prefix}${site}
 

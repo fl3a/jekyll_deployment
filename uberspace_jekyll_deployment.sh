@@ -6,7 +6,7 @@
 # See https://netzaffe.de/jekyll-deployment-auf-uberspace-via-bare-repo-und-post-receive-hook/ 
 # for requirements and more detailed description (german)
 
-[ $1 != "--cli" ] && read oldrev newrev ref ; pushed_branch=${ref#refs/heads/}
+[ "$1" != "--cli" ] && read oldrev newrev ref ; pushed_branch=${ref#refs/heads/}
 
 ## Variables
 
@@ -23,7 +23,7 @@ tmp=$(mktemp -d)
 
 ## Do the magic
  
-[ $pushed_branch != $build_branch ] && exit
+[ "$pushed_branch" != "$build_branch" ] && exit
 git clone ${git_repo} ${tmp}
 cd ${tmp}
 bundle install --path=~/.gem || bundle install --path=~/.gem --redownload

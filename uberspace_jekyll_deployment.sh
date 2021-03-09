@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+
 # Deployment of Jekyll-Sites on Uberspace 
 # via Git Bare Repository and post-receive Hook.
 #
@@ -16,14 +16,20 @@ fi
 
 ## Variables
 
-build_branch='master'	# e.g. 'master'
-site='netzaffe.de'	# e.g. 'example.com'
-site_prefix=''         	# e.g. 'preview.' # Mind the trailing '.' !
+# Path to your Jekyll Git-Repository 
+git_repo=${HOME}/repos/${domain}.git	
 
-# Uberspace specific variables
+# Branch which should be build via this script on post-receive. 
+# E.g. 'master'
+build_branch='master'			
 
-git_repo=${HOME}/repos/${site}.git 
-www=/var/www/virtual/${USER}/${site_prefix}${site}
+# Subdomain and Domain.
+# E.g.: 'sub.' (Optional, mind the trailing '.' !) + 'example.com'.
+subdomain=''
+domain='netzaffe.de'			
+
+# Path to document root, destination where the the generated html is served.
+www=/var/www/virtual/${USER}/${subdomain}${domain}
 
 ## Do the magic
  

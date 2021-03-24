@@ -19,13 +19,12 @@ fi
 # Path to your Jekyll Git-Repository 
 git_repo=${HOME}/repos/${domain}.git	
 
-# Branch which should be build via this script on post-receive. 
-# E.g. 'master'
+# Branch which should be build via this script on post-receive, e.g. 'master'
 build_branch='master'			
 
-# Subdomain and Domain.
-# E.g.: 'sub.' (Optional, mind the trailing '.' !) + 'example.com'.
+# Subdomain, e.g. 'sub.' Optional, mind the trailing '.' !
 subdomain=''
+# Domain, e.g. 'example.com'.
 domain='netzaffe.de'			
 
 # Path to document root, destination where the the generated html is served.

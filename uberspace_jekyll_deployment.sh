@@ -15,19 +15,18 @@ else
 	pushed_branch=${ref#refs/heads/} 
 fi
 
-## Variables
+## Source configuration
 
 config=$(mktemp)
-git-show HEAD:build.conf > ${config} || exit
+git-show HEAD:build.conf > ${config} || exit 
 source ${config}
 
 ## Do the magic
- 
-[[ "$pushed_branch" != "$build_branch" && "$pushed_branch" != "NONE" ]] && exit
+
+[[ "$pushed_branch" != "$build_branch" && "$pushed_branch" != "NONE" ]] && exit 
 tmp=$(mktemp -d)
 git clone ${git_repo} ${tmp}
 cd ${tmp}
 bundle install || bundle install --redownload
 bundle exec jekyll build --source ${tmp} --destination ${www}
 rm -rf ${tmp} ${config}
-exit

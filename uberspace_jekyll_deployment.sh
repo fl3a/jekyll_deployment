@@ -16,16 +16,16 @@ fi
 
 ## Variables
 
-# Path to your Jekyll Git-Repository 
-git_repo=${HOME}/repos/${domain}.git	
-
-# Branch which should be build via this script on post-receive, e.g. 'master'
+# Branch that should be build, e.g. 'master'
 build_branch='master'			
 
 # Subdomain, e.g. 'sub.' Optional, mind the trailing '.' !
 subdomain=''
 # Domain, e.g. 'example.com'.
 domain='netzaffe.de'			
+
+# Path to your Jekyll Git-Repository 
+git_repo=${HOME}/repos/${domain}.git	
 
 # Path to document root, destination where the the generated html is served.
 www=/var/www/virtual/${USER}/${subdomain}${domain}
@@ -36,7 +36,7 @@ www=/var/www/virtual/${USER}/${subdomain}${domain}
 tmp=$(mktemp -d)
 git clone ${git_repo} ${tmp}
 cd ${tmp}
-bundle install --path=~/.gem || bundle install --path=~/.gem --redownload
+bundle install || bundle install --redownload
 bundle exec jekyll build --source ${tmp} --destination ${www}
 rm -rf ${tmp}
 exit

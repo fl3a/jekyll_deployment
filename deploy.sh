@@ -1,10 +1,10 @@
-## Variables
+# https://github.com/fl3a/jekyll_deployment
 
 # Branch that should be build, e.g. 'master'
 build_branch='master'
 
 # Subdomain, e.g. 'sub.' Optional, mind the trailing '.' !
-# subdomain='sub.'
+subdomain='sub.'
 
 # Domain, e.g. 'example.com'.
 domain='example.com'

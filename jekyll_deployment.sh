@@ -2,7 +2,7 @@
 
 # Manual deployment of jekyll sites 
 #
-# See https://netzaffe.de/jekyll-deployment-auf-uberspace-via-bare-repo-und-post-receive-hook/ 
+# See https://netzaffe.de/jekyll-deployment-via-bare-repository-und-post-receive-hook.html
 # for requirements and more detailed description (german)
 
 ## Variables

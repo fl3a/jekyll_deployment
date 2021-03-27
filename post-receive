@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# Deployment of Jekyll-Sites on Uberspace 
-# via Git Bare Repository and post-receive Hook.
+# Deployment of Jekyll-Sites  
+# via Git Bare Repository and post-receive hook.
 #
-# See https://netzaffe.de/jekyll-deployment-auf-uberspace-via-bare-repo-und-post-receive-hook/ 
+# See https://netzaffe.de/jekyll-deployment-via-bare-repository-und-post-receive-hook.html
 # for requirements and more detailed description (german)
 # set -x
+
+# Get pushed branch
 
 read oldrev newrev ref 
 pushed_branch=${ref#refs/heads/} 

@@ -13,12 +13,12 @@ pushed_branch=${ref#refs/heads/}
 ## Source configuration from repository
 
 config=$(mktemp)
-git-show HEAD:build.conf > $config || exit 
+git-show HEAD:deploy.conf > $config || exit 
 source ${config}
 
 ## Do the magic
 
-[ "$pushed_branch" != "$build_branch" ] && exit 
+[ "$pushed_branch" != "$build_branch" ] && exit 1
 tmp=$(mktemp -d)
 git clone $git_repo $tmp
 cd $tmp

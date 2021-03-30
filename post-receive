@@ -16,7 +16,7 @@ pushed_branch=${ref#refs/heads/}
 
 config=$(mktemp)
 git-show HEAD:deploy.conf > $config || exit 
-source ${config}
+source $config
 
 ## Do the magic
 

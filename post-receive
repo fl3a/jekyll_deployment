@@ -25,5 +25,6 @@ tmp=$(mktemp -d)
 git clone $git_repo $tmp
 cd $tmp
 bundle install || bundle install --redownload
-bundle exec jekyll build --source $tmp --destination $www
+JEKYLL_ENV=${env:-production} \
+  bundle exec jekyll build --source $tmp --destination $www $build_prefix
 rm -rf $tmp $config

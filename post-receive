@@ -17,7 +17,7 @@ if [ -z "$1" ]; then
 else 
 ## Script is called directly with supplied bare repository argument
   [ -d "$1" ] && { cd $1 ; git rev-parse --is-bare-repository ; } &> /dev/null || exit 
-  pushed_branch="not_given"
+  pushed_branch=""
 fi
 
 ## Get configuration file from bare repository and source it
@@ -25,7 +25,7 @@ config=$(mktemp)
 git show HEAD:deploy.conf > $config || exit 
 source $config
 
-[ "$pushed_branch" == "not_given" ] && build_branch=$pushed_branch
+[ -z "$pushed_branch" ] && build_branch=$pushed_branch
 [ "$pushed_branch" != "$build_branch" ] && exit 
 tmp=$(mktemp -d)
 git clone $git_repo $tmp

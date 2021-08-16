@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Deployment of Jekyll-Sites  
-# via Git Bare Repository and post-receive hook.
+# Deployment of Jekyll-Sites via Git Bare Repository and post-receive hook.
+#
+# USAGE:
+# 1. Place this script as .hooks/post-receive within your git bare repository
+# 2. ${SCRIPT} /path/to/git-bare-repository
 #
 # See https://netzaffe.de/jekyll-deployment-via-bare-repository-und-post-receive-hook.html
-# for requirements and more detailed description (german)
+# for setup and a more detailed description (german)
 # set -x
 
 ## Get pushed branch when called via git hook

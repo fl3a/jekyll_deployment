@@ -7,20 +7,23 @@
 # for requirements and more detailed description (german)
 # set -x
 
-# Get pushed branch
+## Get pushed branch when called via git hook
+if [ -z "$1" ]; then
+  read oldrev newrev ref 
+  pushed_branch=${ref#refs/heads/} 
+else 
+## Script is called directly with supplied bare repository argument
+  [ -d "$1" ] && { cd $1 ; git rev-parse --is-bare-repository ; } &> /dev/null || exit 
+  pushed_branch="not_given"
+fi
 
-read oldrev newrev ref 
-pushed_branch=${ref#refs/heads/} 
-
-## Source configuration from repository
-
+## Get configuration file from bare repository and source it
 config=$(mktemp)
-git-show HEAD:deploy.conf > $config || exit 
+git show HEAD:deploy.conf > $config || exit 
 source $config
 
-## Do the magic
-
-[ "$pushed_branch" != "$build_branch" ] && exit 1
+[ "$pushed_branch" == "not_given" ] && build_branch=$pushed_branch
+[ "$pushed_branch" != "$build_branch" ] && exit 
 tmp=$(mktemp -d)
 git clone $git_repo $tmp
 cd $tmp

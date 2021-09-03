@@ -11,17 +11,15 @@
 #
 # set -x
 
-## Get pushed branch when called via git hook
 if [ -z "$1" ]; then
   read oldrev newrev ref 
   pushed_branch=${ref#refs/heads/} 
-else 
-## Script is called directly with supplied bare repository argument
-  [ -d "$1" ] && { cd $1 ; git rev-parse --is-bare-repository ; } &> /dev/null || exit 
+elif [ -d "$1" ] && { cd $1 ; git rev-parse --is-bare-repository ; } >/dev/null; then
   pushed_branch=""
+else
+  exit
 fi
 
-## Get configuration file from bare repository and source it
 config=$(mktemp)
 git show HEAD:deploy.conf > $config || exit 
 source $config

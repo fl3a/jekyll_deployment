@@ -9,7 +9,7 @@
 # See https://florian.latzel.io/jekyll-deployment-via-bare-repository-und-post-receive-hook.html
 # for setup and a more detailed description (german)
 #
-# set -x
+set -x
 
 if [ -z "$1" ]; then
   read oldrev newrev ref 
@@ -24,10 +24,10 @@ config=$(mktemp)
 git show HEAD:deploy.conf > $config || exit 
 source $config
 
-[ -z "$pushed_branch" ] && build_branch=$pushed_branch
+[ -z "$pushed_branch" ] && pushed_branch=$build_branch
 [ "$pushed_branch" != "$build_branch" ] && exit 
 tmp=$(mktemp -d)
-git clone $git_repo $tmp
+git clone --single-branch --branch $build_branch $git_repo $tmp
 cd $tmp
 bundle install || bundle install --redownload
 JEKYLL_ENV=${env:-production} \

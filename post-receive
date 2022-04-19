@@ -23,13 +23,18 @@ fi
 config=$(mktemp)
 git show HEAD:deploy.conf > $config || exit 
 source $config
+rev=$(git rev-parse HEAD)
 
 [ -z "$pushed_branch" ] && pushed_branch=$build_branch
 [ "$pushed_branch" != "$build_branch" ] && exit 
+[ -f "$extra_vars" ] && source $extra_vars
+
 tmp=$(mktemp -d)
 git clone --single-branch --branch $build_branch $git_repo $tmp
 cd $tmp
 bundle install || bundle install --redownload
 JEKYLL_ENV=${env:-production} \
-  bundle exec jekyll build --source $tmp --destination $www $build_prefix
+  JEKYLL_BUILD_REVISION=$rev \
+  bundle exec jekyll build --source $tmp --destination $www $build_suffix
 rm -rf $tmp $config
+$post_exec

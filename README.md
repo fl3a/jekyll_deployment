@@ -10,6 +10,12 @@ Create a [bare git repository](https://www.saintsjd.com/2011/01/what-is-a-bare-g
 
 ### Post-receive Git Hook
 
-### Configuration
+### Standalone Script
+
+## Configuration
 
 deploy.conf
+
+## Examples
+
+## Credits

@@ -1,6 +1,13 @@
 # jekyll_deployment
 
-Deployment of Jekyll-Sites on via Git Bare Repository and post-receive Hook on a Linux a webserver e.g. uberspace.
+Deployment of Jekyll-Sites on via Git Bare Repository and post-receive Hook 
+on a Linux a webserver e.g. [uberspace](https://uberspace.de).
+
+The script can be used in 2 ways:
+1. as *post-receive-hook*
+2. as standalone script with the *git bare repository* as argument
+
+In both cases the same config (*deploy.sh*) is used.
 
 ## Installation
 
@@ -9,31 +16,30 @@ Deployment of Jekyll-Sites on via Git Bare Repository and post-receive Hook on a
 We need to create a [bare git repository](https://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/) 
 on your target machine.
 
-Wir starten nach erfolgreichem SSH-Login auf unserem Uberspace-Host 
-in unserem Home-Verzeichnis und legen Ordner für unser Repository an,
+We start after successful ssh-login on our target host in our home directory
+and create a directory for our repositories.
 
 ```
 mkdir repos
 ```
-
-wechseln dort hinein
+change into... 
 ```
 cd repos
 ```
+and create another directory to which we want to *push*.
+In the following example the directory is named like our domain. 
+(From here on you should substitute *florian.latzel.io* with yours...)Domain ersetzen.
 
-und erstellen den Ordner für das Repository auf das wir später *pushen* wollen.
-In diesem Fall entspricht der Ordnername der Domain.
-Ab hier solltest du das exemplarische *florian.latzel.io* durch deine Domain ersetzen.
 ```
 mkdir florian.latzel.io
 ```
 
-und wechseln hinein.
+change into... 
 ```
 cd florian.latzel.io
 ```
 
-Jetzt initialisieren wir den Ordner als **Bare Repository**[^bare].
+now we initialise the directory as **bare repository**.
 ```
 git init --bare
 ```

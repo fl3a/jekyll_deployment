@@ -8,6 +8,7 @@
 #
 # See https://florian.latzel.io/jekyll-deployment-via-bare-repository-und-post-receive-hook.html
 # for setup and a more detailed description (german)
+set -x
 
 if [ -z "$1" ]; then
   read oldrev newrev ref 
@@ -21,8 +22,6 @@ fi
 config=$(mktemp)
 git show HEAD:deploy.conf > $config || exit 
 source $config
-[ $debug = true ] && set -x
-rev=$(git rev-parse HEAD)
 
 [ -z "$pushed_branch" ] && pushed_branch=$build_branch
 [ "$pushed_branch" != "$build_branch" ] && exit 

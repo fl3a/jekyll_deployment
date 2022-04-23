@@ -128,7 +128,28 @@ after the transmission of your changes.
 git push uberspace main
 ```
 
+## Usage
+
+### git push
+
+From your repository **on your local machine** you will just type `git push uberspace`
+and your site will be depoyed in a few moments.
+
+### jekyll_deployment
+
+**On your target machine** (where the HTML is generated and served) type `jekyll_deployment` 
+with path to your bare respository as argument:
+```
+jekyll_deployment ~/repos/florian.latzel.io
+```
+
+This might be useful if you want to rebuild your site without having changes to push.   
+E.g. your deployment fails and you want to investigate where and why.
+
 ## Examples
+
+- [deploy.conf of florian.latzel.io](https://github.com/fl3a/florian.latzel.io/blob/master/deploy.conf)
+- [deploy.conf of my cv](https://github.com/fl3a/cv/blob/main/deploy.conf) which lives at <https://florian.latzel.io/cv/>
 
 ## Credits
 

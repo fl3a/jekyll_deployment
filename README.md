@@ -82,16 +82,40 @@ chmod +x ~/repos/jekyll_deployment/post-receive
 
 ### Standalone Script
 
+Set a symbolic link to directory which is your `$PATH`.
+(On uberspace it is `~/bin` by default).
+```
+ln -s ~/repos/jekyll_deployment/post-receive ~/bin/jekyll_deployment
+```
 ## Configuration
-
-### deploy.conf
 
 ### Set BUNDLE_PATH
 
-Add the following line to *~/.bundle/config*:
+**On your target machine**, add the following line to *~/.bundle/config*:
 ```
 BUNDLE_PATH: "~/.gem"
 ```
+### Add remote repository
+
+**On your local machine**, you need to add a *remote repository*,
+in below example named `uberspace` to your local git repository.
+```
+git remote add uberspace fl3a@bellatrix.uberspace.de:repos/florian.latzel.io
+```
+
+Now you can push your branch e.g. main to your remote `uberspace`
+and might see the output from `git clone`, `bundle install` and `jekyll build`
+after the transmission of your changes.
+```
+git push uberspace main
+```
+
+
+
+
+
+### deploy.conf
+
 ## Examples
 
 ## Credits

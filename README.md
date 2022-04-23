@@ -95,6 +95,9 @@ ln -s ~/repos/jekyll_deployment/post-receive ~/bin/jekyll_deployment
 ```
 BUNDLE_PATH: "~/.gem"
 ```
+
+### deploy.conf
+
 ### Add remote repository
 
 **On your local machine**, you need to add a *remote repository*,
@@ -109,12 +112,6 @@ after the transmission of your changes.
 ```
 git push uberspace main
 ```
-
-
-
-
-
-### deploy.conf
 
 ## Examples
 

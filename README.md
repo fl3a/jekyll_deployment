@@ -2,7 +2,7 @@
 
 Deployment of Jekyll-Sites on via Git Bare Repository and *post-receive* 
 [*git hook*](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
-on a Linux a webserver🐧 e.g. [uberspace](https://uberspace.de).
+on a Linux🐧 webserver e.g. [uberspace](https://uberspace.de).
 
 What it does: a local `git push` triggers the *post-receive git hook* on the target system
 which serves our generated html.

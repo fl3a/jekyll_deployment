@@ -14,7 +14,7 @@ In both cases the same config (*deploy.sh*) is used.
 ### Bare-Git-Repository
 
 We need to create a [bare git repository](https://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/) 
-on your target machine.
+**on your target machine**.
 
 We start after successful ssh-login on our target host in our home directory
 and create a directory for our repositories.

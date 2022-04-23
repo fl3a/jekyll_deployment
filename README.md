@@ -3,6 +3,16 @@
 Deployment of Jekyll-Sites on via Git Bare Repository and post-receive Hook 
 on a Linux a webserver e.g. [uberspace](https://uberspace.de).
 
+What it does: a local `git push` triggers the *post-receive git hook* on the target system
+which serves our generated html.
+1. Check configured branch and pushed branch (exit or continue)
+2. Generate a temporary directory
+3. Clone the bare repo into this directory
+4. Install the dependencies specified in your *Gemfile*
+5. Generate HTML from Jekyll via `jekyll build` to our *document root*
+6. Delete temporary directory from 2.
+7. Execute an optional task, `$post_exec` that can be configured
+
 The script can be used in 2 ways:
 1. as *post-receive-hook*
 2. as standalone script with the *git bare repository* as argument

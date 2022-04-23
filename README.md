@@ -102,11 +102,11 @@ BUNDLE_PATH: "~/.gem"
 Copy *deploy.conf* to your sites repo, 
 edit the **mandatory variables**, commit and push it.
 
-The following variables are mandatory and must be changed according your needs:
+The following variables are mandatory and must be changed according your needs:\\
 (If you are on uberspace, `www` already fits their path schema😙)
 
 1. The branch that should be build (pushes to other branches will be ignored): `build_branch`, e.g. `main`
-2. Name of your domain: `domain`, e.g. `example.com`
+2. Name of your domain: `domain`, e.g. `'example.com'`
 3. Path to your Jekyll Git-Repository: `git_repo` e.g. `"${HOME}/repos/${domain}.git"`
 4. Path to document root, destination for the generated html: `www` e.g. `"/var/www/virtual/${USER}/${domain}"`
 

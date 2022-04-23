@@ -102,7 +102,7 @@ BUNDLE_PATH: "~/.gem"
 Copy *deploy.conf* to your sites repo, 
 edit the **mandatory variables**, commit and push it.
 
-The following variables are mandatory and must be changed according your needs:\\
+The following variables are mandatory and must be changed according your needs:   
 (If you are on uberspace, `www` already fits their path schema😙)
 
 1. The branch that should be build (pushes to other branches will be ignored): `build_branch`, e.g. `main`

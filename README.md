@@ -146,18 +146,17 @@ jekyll_deployment ~/repos/florian.latzel.io
 This might be useful if you want to rebuild your site without having changes to push.   
 E.g. your deployment fails and you want to investigate where and why.
 
-## Examples
+## Examples & other resources
 
 - [deploy.conf of florian.latzel.io](https://github.com/fl3a/florian.latzel.io/blob/master/deploy.conf)
 - [deploy.conf of my cv](https://github.com/fl3a/cv/blob/main/deploy.conf) which lives at <https://florian.latzel.io/cv/>
+- [Jekyll Deployment via Bare Repository und post-receive Hook](
+https://florian.latzel.io/jekyll-deployment-via-bare-repository-und-post-receive-hook.html)
 
 ## Credits
 
-Dieser Artikel basiert im wesentlichen auf 
-[Jekyll Auf Uberspace Mit Git](https://www.wittberger.net/post/jekyll-auf-uberspace-mit-git/) von Daniel Wittberger 
-und [Jekyll Auf Uberspace](https://lc3dyr.de/blog/2012/07/22/Jekyll-auf-Uberspace/)
-von Franz aka laerador. Danke!
+This script is based  on [Jekyll Auf Uberspace Mit Git](
+https://www.wittberger.net/post/jekyll-auf-uberspace-mit-git/) from Daniel Wittberger.   
+Thanks for sharing!
 
-Dieser Artikel ist eine aktuelle Essenz, die sich nur auf das Deployment bezieht. 
-Seit 2012, 2013 hat sich einiges in Jekyll und auf Uberspace etc. getan 
-und das Skript hat noch etwas Liebe erfahren. 
+Since 2013 jekyll and uberspace changed a bit and the script itself experienced a lotta love.

@@ -33,6 +33,7 @@ cd $tmp
 bundle install || bundle install --redownload
 JEKYLL_ENV=${env:-production} \
   JEKYLL_BUILD_REVISION=$rev \
+  JEKYLL_GITHUB_TOKEN=$JEKYLL_GITHUB_TOKEN \
   bundle exec jekyll build --source $tmp --destination $www $build_suffix
 rm -rf $tmp $config
 $post_exec

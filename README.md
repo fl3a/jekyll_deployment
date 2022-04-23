@@ -46,29 +46,26 @@ git init --bare
 
 ### Post-receive Git Hook
 
-Als Erstes entfernen wir den *Default post-receive Hook* aus dem Bare-Repository
-um ihn später durch einen symbolischen Link auf unser Skript zu ersetzen.
-
+At first we remove the *post-receive* from the *git repository* (if exists),
+to replace it later with a symbolic link to our script:
 ```
 rm ~/repos/florian.latzel.io/hooks/post-receive
 ```
 
-Dann clonen wir das [Jekyll Deployment Skript](https://github.com/fl3a/jekyll_deployment), 
-dort passiert später die ganze Magie.
-
+We clone the [Jekyll Deployment Skript](https://github.com/fl3a/jekyll_deployment)
+into above created *repo* directory:
 ```
 git clone https://github.com/fl3a/jekyll_deployment.git ~/repos 
 ```
 
-Jetzt legen wir einen Symlink namens *post-receive* im *Bare-Repo* an, 
-der auf das gleichnamige *Deployment Skript* verweist:
-
+Now we create a symbolic link named *post-receive* in our *git bare repository* 
+which source is the same named script from [Jekyll Deployment Skript](
+https://github.com/fl3a/jekyll_deployment):
 ```
 ln -s ~/repos/jekyll_deployment/post-receive ~/repos/florian.latzel.io/hooks/post-receive
 ```
 
-Dann muss das Skript noch ausführbar gemacht werden:
-
+At last, we need to make script executable:
 ```
 chmod +x ~/repos/jekyll_deployment/post-receive
 ```

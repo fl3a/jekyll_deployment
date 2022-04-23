@@ -159,4 +159,4 @@ This script is based  on [Jekyll Auf Uberspace Mit Git](
 https://www.wittberger.net/post/jekyll-auf-uberspace-mit-git/) from Daniel Wittberger.   
 Thanks for sharing!
 
-Since 2013 jekyll and uberspace changed a bit and the script itself experienced a lotta love.
+Since 2013 jekyll and uberspace changed a bit and this script itself experienced a lotta love.

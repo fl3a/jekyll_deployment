@@ -99,11 +99,12 @@ BUNDLE_PATH: "~/.gem"
 
 ### deploy.conf
 
-Copy *deploy.conf* to your sites repository, edit the (mandatory) variables, commit and push it.   
+Copy *deploy.conf* to your sites repository, edit the variables, commit and push it.   
 So the script can read its config from the repository.
 
 These are the **mandatory variables**, you must change them according your needs:   
-(If you are on uberspace like me, `www` path schema will already fit😙)
+(If you are on [uberspace](https://uberspace.de/en)🚀 like me, 
+`www` path schema will already fit😙)
 
 1. `build_branch`, the branch that should be build (pushes to other branches will be ignored) e.g. `main`
 2. `domain`, name of your domain e.g. `'example.com'`

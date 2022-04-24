@@ -154,7 +154,8 @@ E.g. your deployment fails and you want to investigate where and why.
 - [deploy.conf of my cv](https://github.com/fl3a/cv/blob/main/deploy.conf) 
 which lives at <https://florian.latzel.io/cv/> (overrides some `site.github` vars)
 - [Jekyll Deployment via Bare Repository und post-receive Hook](
-https://florian.latzel.io/jekyll-deployment-via-bare-repository-und-post-receive-hook.html)
+https://florian.latzel.io/jekyll-deployment-via-bare-repository-und-post-receive-hook.html) 
+(Blog Post about this script from 03.2021 (german))
 
 ## Credits
 

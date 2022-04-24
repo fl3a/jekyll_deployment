@@ -104,12 +104,12 @@ edit the mandatory variables, commit and push it,
 so the can read its config from the repo.
 
 These are the **mandatory variables**, you must change them according your needs:   
-(If you are on uberspace, `www` already fits their path schema😙)
+(If you are on uberspace like me, `www` path schema will already fit😙)
 
-1. The branch that should be build (pushes to other branches will be ignored): `build_branch`, e.g. `main`
-2. Name of your domain: `domain`, e.g. `'example.com'`
-3. Path to your Jekyll Git-Repository: `git_repo` e.g. `"${HOME}/repos/${domain}.git"`
-4. Path to document root, destination for the generated html: `www` e.g. `"/var/www/virtual/${USER}/${domain}"`
+1. `build_branch`, the branch that should be build (pushes to other branches will be ignored) e.g. `main`
+2. `domain`, name of your domain e.g. `'example.com'`
+3. `git_repo`, path to your Jekyll Git-Repository e.g. `"${HOME}/repos/${domain}.git"`
+4. `www`, path to document root, destination for the generated html e.g. `"/var/www/virtual/${USER}/${domain}"`
 
 For **optional variables** have a look at [deploy.conf](
 https://github.com/fl3a/jekyll_deployment/blob/master/deploy.conf) and the corresponding comments.

@@ -112,7 +112,7 @@ These are the **mandatory variables**, you must change them according your needs
 4. `www`, path to document root, destination for the generated html e.g. `"/var/www/virtual/${USER}/${domain}"`
 
 For **optional variables** have a look at the corresponding comments in [deploy.conf](
-https://github.com/fl3a/jekyll_deployment/blob/master/deploy.conf) and the exapmles below.
+https://github.com/fl3a/jekyll_deployment/blob/master/deploy.conf) and the examples below.
 
 ### Add remote repository
 
@@ -149,8 +149,10 @@ E.g. your deployment fails and you want to investigate where and why.
 
 ## Examples & other resources
 
-- [deploy.conf of florian.latzel.io](https://github.com/fl3a/florian.latzel.io/blob/master/deploy.conf)
-- [deploy.conf of my cv](https://github.com/fl3a/cv/blob/main/deploy.conf) which lives at <https://florian.latzel.io/cv/>
+- [deploy.conf of florian.latzel.io](https://github.com/fl3a/florian.latzel.io/blob/master/deploy.conf) 
+(makes use of `$post_exec`, rebuilds cv after deployment)
+- [deploy.conf of my cv](https://github.com/fl3a/cv/blob/main/deploy.conf) 
+which lives at <https://florian.latzel.io/cv/> (overrides some `site.github` vars)
 - [Jekyll Deployment via Bare Repository und post-receive Hook](
 https://florian.latzel.io/jekyll-deployment-via-bare-repository-und-post-receive-hook.html)
 

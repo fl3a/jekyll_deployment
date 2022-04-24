@@ -99,9 +99,8 @@ BUNDLE_PATH: "~/.gem"
 
 ### deploy.conf
 
-Copy *deploy.conf* to your sites repo, 
-edit the mandatory variables, commit and push it,
-so the script can read its config from the repo.
+Copy *deploy.conf* to your sites repository, edit the (mandatory) variables, commit and push it.   
+So the script can read its config from the repository.
 
 These are the **mandatory variables**, you must change them according your needs:   
 (If you are on uberspace like me, `www` path schema will already fit😙)

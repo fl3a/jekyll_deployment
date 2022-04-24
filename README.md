@@ -39,7 +39,7 @@ cd repos
 ```
 and create another directory to which we want to *push*.
 In the following example the directory is named like our domain. 
-(From here on you should substitute *florian.latzel.io* with yours...)Domain ersetzen.
+(From here on you should substitute *florian.latzel.io* with your domain.)
 
 ```
 mkdir florian.latzel.io

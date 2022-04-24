@@ -111,8 +111,8 @@ These are the **mandatory variables**, you must change them according your needs
 3. `git_repo`, path to your Jekyll Git-Repository e.g. `"${HOME}/repos/${domain}.git"`
 4. `www`, path to document root, destination for the generated html e.g. `"/var/www/virtual/${USER}/${domain}"`
 
-For **optional variables** have a look at [deploy.conf](
-https://github.com/fl3a/jekyll_deployment/blob/master/deploy.conf) and the corresponding comments.
+For **optional variables** have a look at the corresponding comments in [deploy.conf](
+https://github.com/fl3a/jekyll_deployment/blob/master/deploy.conf) and the exapmles below.
 
 ### Add remote repository
 

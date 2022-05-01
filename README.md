@@ -18,7 +18,7 @@ The script can be used in 2 ways:
 1. as *post-receive-hook*
 2. as standalone script with the *git bare repository* as argument
 
-In both cases the same config (*deploy.sh*) is used.
+In both cases the same config (*deploy.conf*) is used.
 
 ## Installation
 

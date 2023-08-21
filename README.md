@@ -26,6 +26,21 @@ In both cases the same config (*deploy.conf*) is used.
 
 ## Installation
 
+### Prerequisites
+
+#### Install Jekyll & Bundler
+
+On your target machine, you will need to install [Jekyll](https://jekyllrb.com/)
+and [Bundler](https://bundler.io/).
+
+See [Jekyll on Linux](https://jekyllrb.com/docs/installation/other-linux/) 
+for details. 
+
+#### ~/.ssh/authorized_keys
+
+You need to add all *ssh public keys* that should be able to deploy 
+to *~/.ssh/authorized_keys* on your target machine.
+
 ### Bare-Git-Repository
 
 We need to create a [bare git repository](https://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/) 

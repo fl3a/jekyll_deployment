@@ -4,11 +4,12 @@ Deployment of Jekyll-Sites on via Git Bare Repository and *post-receive*
 [*git hook*](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
 on a Linux🐧 webserver e.g. [uberspace](https://uberspace.de/en)🚀.
 
-What it does: a local `git push` triggers the *post-receive git hook* on the target system
-which serves our generated html. The script executes the following steps:
+## How does it work?
+
+The script executes the following steps:
 
 1. Assign *pushed branch* to a variable, if called via *post-receive* 
-2. Read the configuration file from repository into a temporary file an source it
+2. Read the configuration file from repository into a temporary file and source it
 3. Assign *build branch* from configuration to *pushed branch* variable if script was called directly
 4. Check if *pushed branch* and *build branch* (from configuration) matches (exit or continue)
 5. Generate a temporary directory
@@ -17,6 +18,8 @@ which serves our generated html. The script executes the following steps:
 8. Generate HTML from Jekyll via `jekyll build` to our *document root*
 9. Delete temporary file from step 2 and directory from step 5
 10. Execute an optional task, `$post_exec` that can be configured
+
+## Types of use
 
 The script can be used in 2 ways:
 1. as *post-receive-hook*

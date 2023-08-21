@@ -1,13 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Deployment of Jekyll-Sites via Git Bare Repository and post-receive hook.
+# https://github.com/fl3a/jekyll_deployment
 #
 # USAGE:
 # - git hook: Place this script as .hooks/post-receive within your git repository
 # - standalone: ${SCRIPT} /path/to/git-bare-repository
 #
-# See https://florian.latzel.io/jekyll-deployment-via-bare-repository-und-post-receive-hook.html
-# for setup and a more detailed description (german)
 set -x
 
 if [ -z "$1" ]; then

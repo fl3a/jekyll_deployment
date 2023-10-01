@@ -1,8 +1,16 @@
 # jekyll_deployment
 
-Deployment of Jekyll-Sites on via Git Bare Repository and *post-receive* 
-[*git hook*](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+Deployment of Jekyll-Sites using Git Bare Repository
 on a Linux🐧 webserver e.g. [uberspace](https://uberspace.de/en)🚀.
+
+## Types of use
+
+The script can be used in 2 ways:
+1. As *post-receive* 
+[*git hook*](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+2. As standalone script with path to *git bare repository* as argument
+
+In both cases the same config ([*deploy.conf*](#deployconf)) is used.
 
 ## How does it work?
 
@@ -18,14 +26,6 @@ The script executes the following steps:
 8. Generate HTML from Jekyll via `jekyll build` to our *document root*
 9. Delete temporary file from step 2 and directory from step 5
 10. Execute an optional task, `$post_exec` that can be configured
-
-## Types of use
-
-The script can be used in 2 ways:
-1. as *post-receive-hook*
-2. as standalone script with the *git bare repository* as argument
-
-In both cases the same config (*deploy.conf*) is used.
 
 ## Installation
 

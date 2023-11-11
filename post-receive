@@ -20,7 +20,7 @@ else
 fi
 
 config=$(mktemp)
-git show $pushed_branch:deploy.conf > $config || exit 
+git show ${pushed_branch:-HEAD}:deploy.conf > $config || exit 
 source $config
 
 [ -z "$pushed_branch" ] && pushed_branch=$build_branch

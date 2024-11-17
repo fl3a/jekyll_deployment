@@ -10,30 +10,41 @@
 set -e
 set -x
 
-if [ -z "$1" ]; then
-  read oldrev newrev ref 
-  pushed_branch=${ref#refs/heads/} 
-elif [ -d "$1" ] && { cd $1 ; git rev-parse --is-bare-repository ; } >/dev/null; then
-  pushed_branch=""
-else
-  exit
-fi
+function check_parameter() {
+  if [ -z "$1" ]; then
+    read oldrev newrev ref 
+    pushed_branch=${ref#refs/heads/} 
+  elif [ -d "$1" ] && { cd $1 ; git rev-parse --is-bare-repository ; } >/dev/null; then
+    pushed_branch=
+  else
+    exit
+  fi
+}
 
-config=$(mktemp)
-git show ${pushed_branch:-HEAD}:deploy.conf > $config || exit 
-source $config
+function configure() {
+  config=$(mktemp)
+  git show ${pushed_branch:-HEAD}:deploy.conf > $config || exit 
+  source $config
+  set +e
+  test -z "$pushed_branch" && pushed_branch=$build_branch
+  test "$pushed_branch" != "$build_branch" && exit 
+  test -e "$extra_vars" && source $extra_vars
+  set -e
+}
 
-[ -z "$pushed_branch" ] && pushed_branch=$build_branch
-[ "$pushed_branch" != "$build_branch" ] && exit 
-[ -f "$extra_vars" ] && source $extra_vars
+function build() {
+  tmp=$(mktemp -d)
+  git clone --single-branch --branch $build_branch $git_repo $tmp
+  cd $tmp
+  bundle install || bundle install --redownload
+  JEKYLL_ENV=${env:-production} \
+    JEKYLL_BUILD_REVISION=$rev \
+    JEKYLL_GITHUB_TOKEN=$JEKYLL_GITHUB_TOKEN \
+    bundle exec jekyll build --source $tmp --destination $www $build_suffix
+  rm -rf $tmp $config
+}
 
-tmp=$(mktemp -d)
-git clone --single-branch --branch $build_branch $git_repo $tmp
-cd $tmp
-bundle install || bundle install --redownload
-JEKYLL_ENV=${env:-production} \
-  JEKYLL_BUILD_REVISION=$rev \
-  JEKYLL_GITHUB_TOKEN=$JEKYLL_GITHUB_TOKEN \
-  bundle exec jekyll build --source $tmp --destination $www $build_suffix
-rm -rf $tmp $config
+check_parameter $1
+configure
+build
 $post_exec

@@ -41,10 +41,17 @@ function build() {
     JEKYLL_BUILD_REVISION=$rev \
     JEKYLL_GITHUB_TOKEN=$JEKYLL_GITHUB_TOKEN \
     bundle exec jekyll build --source $tmp --destination $www $build_suffix
+}
+
+function cleanup() {
   rm -rf $tmp $config
 }
 
+
+trap cleanup ERR EXIT
 check_parameter $1
 configure
 build
 $post_exec
+
+

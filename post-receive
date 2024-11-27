@@ -47,11 +47,9 @@ function cleanup() {
   rm -rf $tmp $config
 }
 
-
-trap cleanup ERR EXIT
+trap cleanup ERR SIGINT
 check_parameter $1
 configure
 build
+cleanup
 $post_exec
-
-

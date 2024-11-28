@@ -10,11 +10,16 @@
 set -e
 set -x
 
+function is_bare_repo () {
+  cd $1 && test $(git rev-parse --is-bare-repository) == "true" \
+    && return 0 || return 1 
+}
+
 function check_parameter() {
   if [ -z "$1" ]; then
     read oldrev newrev ref 
     pushed_branch=${ref#refs/heads/} 
-  elif [ -d "$1" ] && { cd $1 ; git rev-parse --is-bare-repository ; } >/dev/null; then
+  elif is_bare_repo $1; then
     pushed_branch=
   else
     exit
@@ -25,11 +30,13 @@ function configure() {
   config=$(mktemp)
   git show ${pushed_branch:-HEAD}:deploy.conf > $config || exit 
   source $config
-  set +e
-  test -z "$pushed_branch" && pushed_branch=$build_branch
+  if [ -z "$pushed_branch" ]; then
+    pushed_branch=$build_branch
+  fi
   test "$pushed_branch" != "$build_branch" && exit 
-  test -e "$extra_vars" && source $extra_vars
-  set -e
+  if [ -f "$extra_vars" ]; then 
+    source $extra_vars
+  fi
 }
 
 function build() {
@@ -52,4 +59,4 @@ check_parameter $1
 configure
 build
 cleanup
-$post_exec
+eval $post_exec

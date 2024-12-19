@@ -7,8 +7,8 @@
 # USAGE:
 # - git hook: Place this script as .hooks/post-receive within your git repository
 # - standalone: ${SCRIPT} /path/to/git-bare-repository
-set -e
-set -x
+set -o errexit
+set -o xtrace
 
 function is_bare_repo () {
   cd $1 && test $(git rev-parse --is-bare-repository) == "true" \
@@ -54,7 +54,7 @@ function cleanup() {
   rm -rf $tmp $config
 }
 
-trap cleanup ERR SIGINT
+trap cleanup ERR SIGINT SIGKILL
 check_parameter $1
 configure
 build
